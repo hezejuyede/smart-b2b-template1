@@ -136,56 +136,97 @@ $(function () {
                 trigger: 'axis'
             },
             legend: {
-                data:['销售额','订单数'],
+                data:['正常值', '超出值'],
                 textStyle:{
                     color: '#fff'
                 },
                 top: '8%'
             },
             grid: {
-                top: '40%',
-                left: '3%',
-                right: '4%',
-                bottom: '3%',
+                top: '20%',
+                left: '5%',
+                right: '5%',
+                bottom: '5%',
                 containLabel: true
             },
             color: ['#FF4949','#FFA74D','#FFEA51','#4BF0FF','#44AFF0','#4E82FF','#584BFF','#BE4DFF','#F845F1'],
             xAxis: {
                 type: 'category',
-                boundaryGap: false,
-                data: ['2018年9月','2018年10月','2018年11月','2018年12月','2019年1月'],
+                boundaryGap: true,
+                data: ['济南', '青岛', '淄博', '枣庄', '东营', '烟台', '潍坊', '济宁', '泰安', '威海', '日照', '临沂', '德州', '聊城', '滨州', '菏泽'],
                 splitLine: {
                     show: false
+                },
+                offset:5,
+                axisTick:{ //y轴刻度线
+                    show:false,
                 },
                 axisLine: {
                     lineStyle: {
                         color: '#fff'
+                    }
+                },
+                axisLabel: {
+                    color: '#FFF',
+                    //  让x轴文字方向为竖向
+                    interval: 0,
+                    formatter: function(value) {
+                        return value.split('').join('\n')
                     }
                 }
             },
             yAxis: {
-                name: '',
+                name: '单位万吨',
+                nameTextStyle: {
+                    color: "#FFF",
+                    nameLocation: "center",
+                },
                 type: 'value',
                 splitLine: {
-                    show: false
+                    lineStyle: {
+                        color: "#3A4467"
+                    }
                 },
                 axisLine: {
-                    lineStyle: {
-                        color: '#fff'
+                    show:false,
+                },
+                axisTick:{ //y轴刻度线
+                    show:false,
+                },
+                axisLabel: {
+                    textStyle: {
+                        color: "#FFF"
                     }
-                }
+                },
             },
             series: [
+
                 {
-                    name:'销售额',
-                    type:'line',
-                    data:[3961.88, 4233.63, 4183.14, 3633.01, 3704.47]
+
+                    name: '超出值',
+                    type: 'bar',
+                    barGap: "-100%",
+                    data: [9461.88, 0, 0, 0, 0, 0, 10233.63, 0, 0, 0, 0, 0, 0, 0, 0, 0,],
+                    itemStyle: {
+                        normal: {
+                            color: '#FE0000',
+                            barBorderRadius: [5, 5, 5, 5]
+                        }
+                    }
                 },
                 {
-                    name:'订单数',
-                    type:'line',
-                    data:[3374.76, 3364.76, 3274.76, 3371.82, 3259.87]
-                }
+
+                    name: '正常值',
+                    type: 'bar',
+                    barGap: "-100%",
+                    data: [5961.88, 4933.63, 4183.14, 1133.01, 4204.47,4061.88, 7883.14, 2183.14, 1633.01, 2704.47, 3861.88, 5100, 2050, 2100, 5500, 2000,],
+                    itemStyle: {
+                        normal: {
+                            color: '#AF6911',
+                            barBorderRadius: [5, 5, 5, 5]
+                        }
+                    }
+                },
             ]
         };
         myChart.setOption(option);
@@ -507,26 +548,30 @@ $(function () {
                 trigger: 'axis'
             },
             legend: {
-                data:['顺丰快递','邮政速递','百世快递','圆通速递','中通速递','申通快递','韵达快递'],
+                data:['低碳情景','基准情景','高耗能情景'],
                 textStyle:{
                     color: '#fff'
                 },
                 top: '8%'
             },
             grid: {
-                top: '40%',
-                left: '3%',
-                right: '4%',
-                bottom: '3%',
+                top: '30%',
+                left: '5%',
+                right: '5%',
+                bottom: '5%',
                 containLabel: true
             },
             color: ['#FF4949','#FFA74D','#FFEA51','#4BF0FF','#44AFF0','#4E82FF','#584BFF','#BE4DFF','#F845F1'],
             xAxis: {
                 type: 'category',
                 boundaryGap: false,
-                data: ['2018年9月','2018年10月','2018年11月','2018年12月','2019年1月'],
+                data: ['2018','2022','2026','2030','2034','2038','2042','2046','2050'],
                 splitLine: {
                     show: false
+                },
+                offset:10,
+                axisTick:{ //y轴刻度线
+                    show:false,
                 },
                 axisLine: {
                     lineStyle: {
@@ -535,53 +580,76 @@ $(function () {
                 }
             },
             yAxis: {
-                name: '单',
+                name: '单位万吨',
+                nameTextStyle: {
+                    color: "#FFF",
+                    nameLocation: "center",
+                },
                 type: 'value',
                 splitLine: {
-                    show: false
-                },
-                axisLine: {
                     lineStyle: {
-                        color: '#fff'
+                        color: "#3A4467"
                     }
-                }
+                },
+                min:50,
+                axisLine: {
+                    show:false,
+                },
+                axisTick:{ //y轴刻度线
+                    show:false,
+                },
+                axisLabel: {
+                    textStyle: {
+                        color: "#FFF"
+                    }
+                },
             },
             series: [
                 {
-                    name:'顺丰快递',
+                    name:'低碳情景',
                     type:'line',
-                    data:[3961, 4233, 4183, 3633, 3704]
+                    lineStyle: {
+                        color: '#53C7A0'
+                    },
+                    smooth: false, //true 有弧度 ，false 没弧度（直线）
+                    symbol: 'circle',
+                    itemStyle: {
+                        normal: {
+                            color: '#53C7A0'
+                        }
+                    },
+                    data:[78, 90, 108, 105, 95,86     , 76, 72, 73]
                 },
                 {
-                    name:'邮政速递',
+                    name:'基准情景',
                     type:'line',
-                    data:[3374, 3364, 3274, 3371, 3259]
+                    lineStyle: {
+                        color: '#28A1FB'
+                    },
+                    smooth: false, //true 有弧度 ，false 没弧度（直线）
+                    symbol: 'circle',
+                    itemStyle: {
+                        normal: {
+                            color: '#28A1FB'
+                        }
+                    },
+                    data:[78,89, 98, 108, 109,105   , 97, 86, 69.4]
                 },
                 {
-                    name:'百世快递',
+                    name:'高耗能情景',
                     type:'line',
-                    data:[14, 15, 13, 14, 15]
+                    lineStyle: {
+                        color: '#E37A17'
+                    },
+                    smooth: false, //true 有弧度 ，false 没弧度（直线）
+                    symbol: 'circle',
+                    itemStyle: {
+                        normal: {
+                            color: '#E37A17'
+                        }
+                    },
+                    data:[81, 86, 93, 105, 118,126   , 128, 124, 107]
                 },
-                {
-                    name:'圆通速递',
-                    type:'line',
-                    data:[686,847,895,865,886]
-                },
-                {
-                    name:'中通速递',
-                    type:'line',
-                    data:[6133, 6577, 7019,6821,7294]
-                },
-                {
-                    name:'申通快递',
-                    type:'line',
-                    data:[509, 862, 1481,1552,1333]
-                },
-                {
-                    name:'韵达快递',
-                    type:'line',
-                    data:[509, 900, 1350,1487,1600]
-                }
             ]
         };
         myChart.setOption(option);
@@ -600,26 +668,30 @@ $(function () {
                 trigger: 'axis'
             },
             legend: {
-                data: ['销售额', '订单数'],
-                textStyle: {
+                data:['低碳情景','基准情景','高耗能情景'],
+                textStyle:{
                     color: '#fff'
                 },
                 top: '8%'
             },
             grid: {
-                top: '40%',
-                left: '3%',
-                right: '4%',
-                bottom: '3%',
+                top: '30%',
+                left: '5%',
+                right: '5%',
+                bottom: '5%',
                 containLabel: true
             },
-            color: ['#FF4949', '#FFA74D', '#FFEA51', '#4BF0FF', '#44AFF0', '#4E82FF', '#584BFF', '#BE4DFF', '#F845F1'],
+            color: ['#FF4949','#FFA74D','#FFEA51','#4BF0FF','#44AFF0','#4E82FF','#584BFF','#BE4DFF','#F845F1'],
             xAxis: {
                 type: 'category',
                 boundaryGap: false,
-                data: ['2018年9月', '2018年10月', '2018年11月', '2018年12月', '2019年1月'],
+                data: ['2018','2022','2026','2030','2034','2038','2042','2046','2050'],
                 splitLine: {
                     show: false
+                },
+                offset:10,
+                axisTick:{ //y轴刻度线
+                    show:false,
                 },
                 axisLine: {
                     lineStyle: {
@@ -628,28 +700,76 @@ $(function () {
                 }
             },
             yAxis: {
-                name: '',
+                name: '单位万吨',
+                nameTextStyle: {
+                    color: "#FFF",
+                    nameLocation: "center",
+                },
                 type: 'value',
                 splitLine: {
-                    show: false
-                },
-                axisLine: {
                     lineStyle: {
-                        color: '#fff'
+                        color: "#3A4467"
                     }
-                }
+                },
+                min:50,
+                axisLine: {
+                    show:false,
+                },
+                axisTick:{ //y轴刻度线
+                    show:false,
+                },
+                axisLabel: {
+                    textStyle: {
+                        color: "#FFF"
+                    }
+                },
             },
             series: [
                 {
-                    name: '销售额',
-                    type: 'line',
-                    data: [3961.88, 4233.63, 4183.14, 3633.01, 3704.47]
+                    name:'低碳情景',
+                    type:'line',
+                    lineStyle: {
+                        color: '#53C7A0'
+                    },
+                    smooth: false, //true 有弧度 ，false 没弧度（直线）
+                    symbol: 'circle',
+                    itemStyle: {
+                        normal: {
+                            color: '#53C7A0'
+                        }
+                    },
+                    data:[78, 90, 108, 105, 95,86     , 76, 72, 73]
                 },
                 {
-                    name: '订单数',
-                    type: 'line',
-                    data: [3374.76, 3364.76, 3274.76, 3371.82, 3259.87]
-                }
+                    name:'基准情景',
+                    type:'line',
+                    lineStyle: {
+                        color: '#28A1FB'
+                    },
+                    smooth: false, //true 有弧度 ，false 没弧度（直线）
+                    symbol: 'circle',
+                    itemStyle: {
+                        normal: {
+                            color: '#28A1FB'
+                        }
+                    },
+                    data:[78,89, 98, 108, 109,105   , 97, 86, 69.4]
+                },
+                {
+                    name:'高耗能情景',
+                    type:'line',
+                    lineStyle: {
+                        color: '#E37A17'
+                    },
+                    smooth: false, //true 有弧度 ，false 没弧度（直线）
+                    symbol: 'circle',
+                    itemStyle: {
+                        normal: {
+                            color: '#E37A17'
+                        }
+                    },
+                    data:[81, 86, 93, 105, 118,126   , 128, 124, 107]
+                },
             ]
         };
         myChart.setOption(option);
