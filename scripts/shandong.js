@@ -22,6 +22,7 @@
     if (!echarts.registerMap) {
         log('ECharts Map is not loaded')
         return;
+
     }
     echarts.registerMap('山东',
         {
